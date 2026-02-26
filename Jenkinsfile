@@ -19,8 +19,8 @@ pipeline {
 
                 docker rm -f backend1 backend2 || true
 
-                docker run -d --name backend1 --network app-network backend-app
-                docker run -d --name backend2 --network app-network backend-app
+                docker run -d --name backend1 --network app-network -p 8081:8080 backend-app
+                docker run -d --name backend2 --network app-network -p 8082:8080 backend-app
 
                 sleep 5
                 '''
